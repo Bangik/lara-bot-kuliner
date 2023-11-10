@@ -17,7 +17,7 @@ class ListRestaurantCommand extends Command
         $restaurants = $result['restaurants'];
         $text = "List Restaurant : \n";
         foreach ($restaurants as $restaurant) {
-            $text .= $restaurant['name'] . "/detail_" . $restaurant['id'] . "\n";
+            $text .= $restaurant['name'] . " /detail_" . $restaurant['id'] . "\n";
         }
         $text .= "\n Pilih salah satu restoran di atas untuk melihat detailnya ya!";
         $this->replyWithMessage([
