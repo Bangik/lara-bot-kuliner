@@ -1,5 +1,7 @@
 <?php
 
+use App\Telegram\Commands\DetailRestaurantCommand;
+use App\Telegram\Commands\ListRestaurantCommand;
 use App\Telegram\Commands\StartCommand;
 use Telegram\Bot\Commands\HelpCommand;
 
@@ -129,6 +131,8 @@ return [
     'commands' => [
         HelpCommand::class,
         StartCommand::class,
+        ListRestaurantCommand::class,
+        DetailRestaurantCommand::class,
     ],
 
     /*
