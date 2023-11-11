@@ -21,14 +21,6 @@ class AuthController extends Controller
             'password' => 'required|string|min:8',
         ]);
 
-        // if the validation fails, return the error messages
-        if ($request->fails()) {
-            return response()->json([
-                'status' => 'failed',
-                'errors' => $request->errors(),
-            ], 422);
-        }
-
         // create a new user
         $user = User::create([
             'name' => $request->name,
