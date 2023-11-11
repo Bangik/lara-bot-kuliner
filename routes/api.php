@@ -20,3 +20,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // telegram webhook telegram/webhook
 Route::post('telegram/webhook', [\App\Http\Controllers\Api\TelegramBotController::class, 'webhook']);
+
+// routes for authentication
+Route::post('register', [\App\Http\Controllers\Api\AuthController::class, 'register'])->name('register');
+Route::post('login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
+
+// routes for the authenticated user
+Route::middleware('auth:api')->group(function () {
+    Route::get('logout', [\App\Http\Controllers\Api\AuthController::class, 'logout'])->name('logout');
+    Route::get('user', [\App\Http\Controllers\Api\AuthController::class, 'user'])->name('user');
+});
