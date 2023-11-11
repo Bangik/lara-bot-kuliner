@@ -69,6 +69,15 @@ class TelegramBotController extends Controller
 
     public function sendDetailRestaurant($chatId, $text)
     {
+        if (strpos($text, ' ') === false) {
+            $text = "Silahkan ketik /detail nama_restoran";
+            $response = Http::post(env('TELEGRAM_API_URL') . '/sendMessage', [
+                'chat_id' => $chatId,
+                'text' => $text
+            ]);
+            return $response->json();
+        }
+
         $restaurantName = explode(' ', $text)[1];
         $response = Http::get('https://restaurant-api.dicoding.dev/search?q=' . $restaurantName);
         $result = json_decode($response->getBody()->getContents(), true);
