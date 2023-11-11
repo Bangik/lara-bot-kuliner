@@ -1,0 +1,855 @@
+{
+	"info": {
+		"_postman_id": "7f8e8256-9c2e-4025-ae37-dfff584f5456",
+		"name": "Lara bot kuliner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14333810"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"\r",
+							"pm.collectionVariables.set('accessToken', responseJson.access_token)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{name1}}\",\r\n    \"email\": \"{{email1}}\",\r\n    \"password\": \"{{password1}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Register User Email Already Taken",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 01:46:03 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 01:46:03 GMT"
+						},
+						{
+							"key": "Host",
+							"value": "6e11-103-160-182-11.ngrok-free.app"
+						},
+						{
+							"key": "Ngrok-Trace-Id",
+							"value": "a335edb05bba81a75b3a0c60096ace86"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.10"
+						},
+						{
+							"key": "X-Ratelimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-Ratelimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"failed\",\n    \"message\": \"Email is already taken!\"\n}"
+				},
+				{
+					"name": "Register User Password Invalid",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"email\": \"{{email2}}\",\r\n    \"password\": \"{{password2}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 01:52:09 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 01:52:09 GMT"
+						},
+						{
+							"key": "Host",
+							"value": "6e11-103-160-182-11.ngrok-free.app"
+						},
+						{
+							"key": "Ngrok-Trace-Id",
+							"value": "9a711b99476d1949b2522ef631e8ef3c"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.10"
+						},
+						{
+							"key": "X-Ratelimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-Ratelimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"failed\",\n    \"message\": \"Password must be at least 8 characters!\"\n}"
+				},
+				{
+					"name": "Register User Email Invalid",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{name1}}\",\r\n    \"email\": \"{{email3}}\",\r\n    \"password\": \"{{password2}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 01:53:37 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 01:53:37 GMT"
+						},
+						{
+							"key": "Host",
+							"value": "6e11-103-160-182-11.ngrok-free.app"
+						},
+						{
+							"key": "Ngrok-Trace-Id",
+							"value": "d9340743295404c5034c3dd96651f541"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.10"
+						},
+						{
+							"key": "X-Ratelimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-Ratelimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"failed\",\n    \"message\": \"Email is invalid!\"\n}"
+				},
+				{
+					"name": "Register User Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{name1}}\",\r\n    \"email\": \"{{email2}}\",\r\n    \"password\": \"{{password1}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 02:00:22 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 02:00:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "57"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMmVhOGE5ZGYzZWJhMGRkODE3NGE4OTI2ZGFlYmYzMWZiMjBhZjc0ZGRmMGQyMmIzNWI4YWI4NTVlYmY2OWVlYmE2NDE0NTM4M2M4ZDJmYjUiLCJpYXQiOjE2OTk2NjgwMjIuNTY2OTAyLCJuYmYiOjE2OTk2NjgwMjIuNTY2OTA1LCJleHAiOjE3MzEyOTA0MjIuNTU2Mzc2LCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.IEjjHtIgOJILV1pSTMqRs3-hmgJLO7XkiWshhZsyueXX4OPITdmLLc5BwQXdlqNNQYXCX0w_kmJcosauOOwApoK2WiW2pGSo6mxmweuhfVBKxq4tqT_Sg1A_JnE3j-WWm2aoY1AxD7bjL4CXuiPXwICZSr6VN7YWLgAUU8goaZEU0Jv2wsyXFEjRvmQgZYMXXCeRnL9y0zFQnl86VvQV0PdaB3hkOhretlkyetFx6LUZmGccoypA1TA8ZSR30XIMsVc9lp1Se7J0esusxfMkSNxk-oj_ZRmj55sslR9jAbyThdmr9fTbpkABGy7cgUSjqaO_KkX8dU5cpkK8hfdGm822-pLC7skcBqhIPDL_gacPwA3uypzK5dz-9lCLaV9FWTQu3J69O6yOFF9AP1wPHih7OTYJURllUALLuGqNvGqy9KVa_fUUF9J9k8fadeugEjlnwIfeKiVRwSOg2aVITsfUnYNwJht6X02aQRAHNfRARBNs4AHv_NGw2pgTizoFBO6hqGllSz0aw2II6tUYCiwjtRajBK6QJKRqDh8MqyR-sC9RUrEWY8CDE67_ErabuJ2p1Fbv-Lg3N-lYpUdiHb8IPJK-Wc9T1KGn1mU768gVyBeM_LeFcNBbXpH-PsycQtRnCkmLvOXAH63P5Eecbh5R_pClrtN08Os7ByDMTwg\",\n    \"token_type\": \"Bearer\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"\r",
+							"pm.collectionVariables.set('accessToken', responseJson.access_token)"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"{{email2}}\",\r\n    \"password\": \"{{password1}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login User Invalid Credential",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email1}}\",\r\n    \"password\": \"{{password1}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 02:01:15 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 02:01:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"failed\",\n    \"message\": \"Invalid credentials\"\n}"
+				},
+				{
+					"name": "Login User Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email2}}\",\r\n    \"password\": \"{{password1}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 02:02:24 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 02:02:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZTg5NGFhYjhjMWQzNWI5YWQwMGUxODA1NTk4YTlmZjc0MTg4NGQyODFjNDgwOWQwMWJjMWQ2YjI5ZTQ5NTExN2EzZmM2OGU1Y2IyNDA3NDAiLCJpYXQiOjE2OTk2NjgxNDQuNjI1MzQzLCJuYmYiOjE2OTk2NjgxNDQuNjI1MzQ1LCJleHAiOjE3MzEyOTA1NDQuNjEzMDgzLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.Dyn_4GSx56pN4n3FanoDGqEBTIk2E_JhpAXCfe3PBjiDxaGPZycFx-0FqLCH71qeXqWWzYy_-aA3yhM7cW_Tkg-a_8lHahXRYyHvvFZkxVpMaroLZdwYWRZ67USI58CZ0JWJtJzKjNq0JtlteFRif_B1u66yygVL5JE7Aa6SfPmUzBOV9lIgMgEpabNlNgEGggZqz3is94SMIkG7EgtopDFKmeY68ChfHAHrvrG2xbyEISiY2ajthmfhIw821FmvPl4t6t0dHfARF0bEmHa2yZG8tBRwgVkfva2wy_fxYqt7ap8Vq70JQW3WoKm_5FPjpU9HxEjc8GsNwnEC0bcyJn9bTfIc7yMDANmOOPWLhRN8C9bm65xURMpFvZc15yeOvq9-X77gmByLVT7Tl2bfbId-YzNn7QZxNNMSVmn7XTtVN136sWMPUBBwOxmrP9wzhScyesN0oWBG0wwrOnIvpzZ6NV4Kpsyf_LVTUNpQqO_gToZDKArG7c-MTzJ4jzXv-KeGgmRTB52M6dk2yxhPGDJ0xqZ8oA9-K5K50UUJel8eR7w6g8HfNyf8Jjw--raTeSxtqN7HqtJ6lT31I5rTmjyQD9E_jRx_VBjMeT9xUNla5xeRavm49u42G-5cWtq-jR8gfULmPMtvQlClUpNjXtAXiIMxKFGQVdwAdE59j4M\",\n    \"token_type\": \"Bearer\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Logout User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Logout User Failed",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 02:02:54 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 02:02:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "XSRF-TOKEN=eyJpdiI6InZoUlZBVEp1cUNudmtXVnBMYndxUnc9PSIsInZhbHVlIjoiVVpaS2lpYUpMYW1NUklnMHhKZnZ0WGdYNnJLVkNFbzBmbGdyb3ZMbTZla04zTnRNS2ZZVWovTUxzU0JqSlU5L1dRNEhOZk13SzlOWUc4RmpnRkZSMG1mRmFyRVIxTVA1UW55Rzgvamd2OVdxS0FqVS9iNWlMcmt2WGtPREZ0NmMiLCJtYWMiOiI1MWNiMmY5ZDJkMDc0NTgyNWUyZTlkYjJmYWJiOWE3MjdhMjdmZTBhZjE2Yjk4YWQyZWNlYjE2MGNiMWJlMjljIiwidGFnIjoiIn0%3D; expires=Sat, 11 Nov 2023 04:02:54 GMT; Max-Age=7200; path=/; samesite=lax"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "laravel_session=eyJpdiI6InlwNDF0ck00MDBLUTEydkVFYkp6eUE9PSIsInZhbHVlIjoiUGZUbS81ZEltSHluaFhDNmNhSjZ2YTdBVlQ5VVRmVzJjYnM0c1I2NnFIV1FwYk04UitsTkVjcjAzWWtSMWZvQ1dnYVBQajgxOGkyZ1A5Uk44RTMyTFZ0M2dERXhpK1BiYlI3WTNjalNuZjlndUgwdU54a2J4RktuVGt6Rmx4MFMiLCJtYWMiOiJiMDhlOTgzMGY5NDBlMjEyNDRlZmQ2ZTEwM2ExMWYyNjUzNGRmYjg0ZTQ2OThhZjA4ZDcwZGQ2OWRlNTU5NGM0IiwidGFnIjoiIn0%3D; expires=Sat, 11 Nov 2023 04:02:54 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"failed\",\n    \"message\": \"You are not logged in\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get User Detail",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/user",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get User Detail Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 02:10:26 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 02:10:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"name\": \"bangik\",\n    \"email\": \"bangik2@gmail.com\",\n    \"email_verified_at\": null,\n    \"created_at\": \"2023-11-11T02:00:22.000000Z\",\n    \"updated_at\": \"2023-11-11T02:00:22.000000Z\",\n    \"token\": null\n}"
+				},
+				{
+					"name": "Get User Detail Failed",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 02:10:59 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 02:10:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "XSRF-TOKEN=eyJpdiI6IjBPdU93Z3ZSdnhaV25JeTFYUDVZcEE9PSIsInZhbHVlIjoiS1BVNzNQTkZJZUJVcEdnUU5mZW4xUjZBU0ZmNDZyYVRjUjNDMkxoYWFWODZ5blZzdkZqVm9qQmNRTlYwanV6Uk45dE5jMW1MdTkvcU9LNVBnQlBja0pMaWtGOW9tNFNYOWIyVklzamZUS2dlU1NGNURQWjFVcjZRaDloOUxzWHYiLCJtYWMiOiIwMTk3MjVmMTA3OTFhNTVmOWUzNTQ5YTcwZjQ2Y2NjNWZjOTFmYzM3OGUxNmRkYjM5MGM4YmI2NDBlZTVlMTAyIiwidGFnIjoiIn0%3D; expires=Sat, 11 Nov 2023 04:10:59 GMT; Max-Age=7200; path=/; samesite=lax"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "laravel_session=eyJpdiI6Ii8wYStHZy85V0dRQ2VDWUN5RjZuZUE9PSIsInZhbHVlIjoiRzhTQnFmRStDY1VYd25McHU2TWpRUFB6b0J4M3Q1WnBuYmc3NXpZcWh0OEh0aHhua09ldWNTa0NrNE5HTXdXSHlKUVR2eC9KT0NkZjhHL3E5R2RkVzdGSzU3TXJ5L0ZtSU8ybmVmKzAxeVQ3R1ZKR0JHWjB1MGYxVThhb1paMmEiLCJtYWMiOiI3YTVjMjA2OGYyNGM0Zjc3NDI3YjhiYzI2OTI5YjZlMDkwNDYxMmM1MzYzMGMxNzU2MDQ1ZTBiN2Q4MWM4OWEyIiwidGFnIjoiIn0%3D; expires=Sat, 11 Nov 2023 04:10:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"failed\",\n    \"message\": \"You are not logged in\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://lara-bot-kuliner-cunqe.ondigitalocean.app",
+			"type": "string"
+		},
+		{
+			"key": "name1",
+			"value": "bangik",
+			"type": "string"
+		},
+		{
+			"key": "email1",
+			"value": "bangik@gmail.com",
+			"type": "string"
+		},
+		{
+			"key": "email2",
+			"value": "bangik2@gmail.com",
+			"type": "string"
+		},
+		{
+			"key": "email3",
+			"value": "bangikemail",
+			"type": "string"
+		},
+		{
+			"key": "password1",
+			"value": "bangik12345",
+			"type": "string"
+		},
+		{
+			"key": "password2",
+			"value": "bangik",
+			"type": "string"
+		},
+		{
+			"key": "accessToken",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
