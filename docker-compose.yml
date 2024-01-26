@@ -2,10 +2,6 @@ version: '3.8'
 
 services:
   laravel_fpm_1:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: laravel_fpm_1
     image: laravel_fpm_1
     deploy:
       replicas: 2
@@ -13,10 +9,6 @@ services:
       - ./:/var/www/html
   
   laravel_fpm_2:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: laravel_fpm_2
     image: laravel_fpm_2
     deploy:
       replicas: 2
