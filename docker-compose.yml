@@ -1,14 +1,14 @@
 version: '3.8'
 
 services:
-  laravel_fpm_1:
+  fpm_1:
     image: laravel_fpm_1
     deploy:
       replicas: 2
     volumes:
       - ./:/var/www/html
   
-  laravel_fpm_2:
+  fpm_2:
     image: laravel_fpm_1
     deploy:
       replicas: 2
@@ -16,9 +16,7 @@ services:
       - ./:/var/www/html
 
   nginx:
-    build:
-      context: .
-      dockerfile: nginx/Dockerfile
+    image: laravel_nginx
     deploy:
       replicas: 1
     ports:
