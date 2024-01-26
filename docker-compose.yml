@@ -9,7 +9,7 @@ services:
       - ./:/var/www/html
   
   laravel_fpm_2:
-    image: laravel_fpm_2
+    image: laravel_fpm_1
     deploy:
       replicas: 2
     volumes:
