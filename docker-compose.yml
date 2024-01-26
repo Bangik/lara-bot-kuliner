@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  laravel_fpm_1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_fpm_1
+    deploy:
+      replicas: 2
+    volumes:
+      - ./:/var/www/html
+  
+  laravel_fpm_2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_fpm_2
+    deploy:
+      replicas: 2
+    volumes:
+      - ./:/var/www/html
+
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    deploy:
+      replicas: 1
+    ports:
+      - 80:80
+
+networks:
+  default:
+    name: laravel
